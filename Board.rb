@@ -46,6 +46,21 @@ class Board
         end
 
         #check for diagonals
+        diagonals_array = [[],[]]
+        self.board.each_with_index do |array, index| 
+            diagonals_array[0].push(array[index])
+            next
+        end
+        self.board.reverse.each_with_index do |array, index|
+            diagonals_array[1].push(array[index])
+            next
+        end
+        diagonals_array.each_with_index do |value,index|
+            if diagonals_array[index].count(symbol) == 3
+                status = "WON"
+                return status
+            end
+        end
         return status
     end
 
@@ -60,8 +75,8 @@ end
 
 test_board = Board.new
 test_board.board = [
-    ["x","x",""],
+    ["x","x","o"],
     ["o","o",""],
-    ["x","o",""]
+    ["o","o",""]
 ]
-p test_board.check_status("x")
+p test_board.check_status("o")
