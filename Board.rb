@@ -26,7 +26,6 @@ class Board
 
     #method that checks status of the game (won, lost or draw)
     def check_status(symbol)
-        status = "IN PROGRESS"
         #checks for rows
         self.board.each_with_index do |value, index|
             if value.count(symbol)==3
@@ -61,22 +60,22 @@ class Board
                 return status
             end
         end
-        return status
+
+        #check for draw
+        flattened_array = self.board.flatten
+        if !flattened_array.include?("")
+            status = "DRAW"
+            return status
+        end
+        
+        return 'IN PROGRESS'
     end
 
     #method that changes board position to that specific symbol
     def board_update(position, symbol)
-        @board[position[0]][position[1]] = symbol
+        self.board[position[0]][position[1]] = symbol
     end
 
-    #protected
     attr_accessor :board
 end
 
-test_board = Board.new
-test_board.board = [
-    ["x","x","o"],
-    ["o","o",""],
-    ["o","o",""]
-]
-p test_board.check_status("o")
