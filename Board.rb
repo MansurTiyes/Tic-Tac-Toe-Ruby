@@ -2,9 +2,9 @@
 class Board
     def initialize
         @board = [
-            ["","",""],
-            ["","",""],
-            ["","",""]
+            [" "," "," "],
+            [" "," "," "],
+            [" "," "," "]
         ]
     end
 
@@ -61,7 +61,7 @@ class Board
 
         #check for draw
         flattened_array = self.board.flatten
-        if !flattened_array.include?("")
+        if !flattened_array.include?(" ")
             status = "DRAW"
             return status
         end
