@@ -71,11 +71,10 @@ class Game
         end
         while game_board.check_status(current_player.symbol)=="IN PROGRESS" 
             display_which_move(current_player.symbol)
-            move_made = gets.chomp.to_i
-            if move_made<1 || move_made >9 
+            current_player.move = gets.chomp.to_i
+            if current_player.move<1 || current_player.move >9 
                 puts "\t\tPlease enter existing option!"
             else
-                current_player.move = move_made
                 game_board.board_update(game_board.convert_input_to_poistion(current_player.move),current_player.symbol)
                 display_board(game_board.board)
                 if game_board.check_status(current_player.symbol)=="WON"
