@@ -1,5 +1,5 @@
 require_relative 'Player.rb'
-require_relative 'Board.rb'
+require_relative 'board_class.rb'
 
 module Display
     #Method that displays starting menu

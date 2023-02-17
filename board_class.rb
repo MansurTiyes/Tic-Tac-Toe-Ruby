@@ -1,4 +1,4 @@
-#class that involves all operations involved with the game board
+# class that involves all operations involved with the game board
 class Board
     def initialize
         @board = [
@@ -8,7 +8,7 @@ class Board
         ]
     end
 
-    #method that takes a position selected by user(number 1-9) and converts it into corresponding board bosition on the 2d array
+    # method that takes a position selected by user(number 1-9) and converts it into corresponding board bosition on the 2d array
     def convert_input_to_poistion(input)
         case input
         when 1..3
@@ -22,9 +22,9 @@ class Board
         return position
     end
 
-    #method that checks status of the game (won, lost or draw)
+    # method that checks status of the game (won, lost or draw)
     def check_status(symbol)
-        #checks for rows
+        # checks for rows
         self.board.each_with_index do |value, index|
             if value.count(symbol)==3
                 status = "WON"
@@ -32,7 +32,7 @@ class Board
             end
         end
 
-        #checks for columns
+        # checks for columns
         columns_array = [[],[],[]]
         columns_array.each_with_index do |value,index|
             self.board.each { |array| columns_array[index].push(array[index])}
@@ -42,7 +42,7 @@ class Board
             end
         end
 
-        #check for diagonals
+        # check for diagonals
         diagonals_array = [[],[]]
         self.board.each_with_index do |array, index| 
             diagonals_array[0].push(array[index])
@@ -59,7 +59,7 @@ class Board
             end
         end
 
-        #check for draw
+        # check for draw
         flattened_array = self.board.flatten
         if !flattened_array.include?(" ")
             status = "DRAW"
@@ -69,7 +69,7 @@ class Board
         return 'IN PROGRESS'
     end
 
-    #method that changes board position to that specific symbol
+    # method that changes board position to that specific symbol
     def board_update(position, symbol)
         self.board[position[0]][position[1]] = symbol
     end
