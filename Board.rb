@@ -17,8 +17,6 @@ class Board
             position = [1,input-4]
         when 7..9
             position = [2,input-7]
-        else
-            position = "Please enter existing option!"
         end
 
         return position

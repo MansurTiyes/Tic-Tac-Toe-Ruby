@@ -2,7 +2,7 @@
 class Player
     def initialize(symbol)
         @symbol = symbol
-        @move = ""
+        @move = 0
         @won = false
     end
 
